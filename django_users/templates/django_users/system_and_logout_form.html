@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %} {{ title }} {% endblock %}
+{% block content %}
+<div class="container-link">
+    <h1 style="color: #236d5c">Вы в системе!</h1>
+</div>
+<div class="container-link">
+    <a class="link" href="{% url 'logout' %}">Выход</a>
+</div>
+{% endblock %}

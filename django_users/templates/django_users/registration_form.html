@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<form action="" method="POST" name="registration" id="registration">
+    {% csrf_token %}
+    <div class="form-container">
+        <label for="{{form.email.id_for_label}}">{{form.email.label}}:</label> {{form.email}}
+        {% if form.email.errors %} {{form.email.errors}} {% endif %}
+        <ul id="errorEmail" class="errorlist">
+            <li></li>
+        </ul>
+    </div>
+    <div class="form-container">
+        <label for="{{form.password1.id_for_label}}">{{form.password1.label}}:</label> {{form.password1}}
+        {% if form.password1.errors %} {{form.password1.errors}} {% endif %}
+    </div>
+    <div class="form-container">
+        <label for="{{form.password2.id_for_label}}">{{form.password2.label}}:</label> {{form.password2}}
+        {% if form.password2.errors %} {{form.password2.errors}} {% endif %}
+    </div>
+    <div class="form-container">
+        <label for="{{form.captcha.id_for_label}}">{{form.captcha.label}}:</label> {{form.captcha}}
+        {% if form.captcha.errors %} {{form.captcha.errors}} {% endif %}
+    </div>
+    <button class="form-button" type="submit">{{title}}</button>
+</form>
+<div class="container-link">
+    <a class="link" href="{% url 'authorization' %}">Авторизация</a>
+</div>
+{% endblock %}
+
+{% block script_page %}
+<script src="{% static 'django_users/js/script_registration.js' %}"></script>
+{% endblock %}

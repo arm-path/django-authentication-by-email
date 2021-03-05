@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<form action="" method="POST" name="authorization" id="authorization">
+    {% csrf_token %}
+    <div class="form-container">
+        <label for="{{form.username.id_for_label}}">{{form.username.label}}:</label> {{form.username}}
+        {% if form.username.errors %} {{form.username.errors}} {% endif %}
+        <ul id="errorEmail" class="errorlist">
+            <li></li>
+        </ul>
+    </div>
+    <div class="form-container">
+        <label for="{{form.password.id_for_label}}">{{form.password.label}}:</label> {{form.password}}
+        {% if form.password.errors %} {{form.password.errors}} {% endif %}
+    </div>
+    <button class="form-button" type="submit">{{title}}</button>
+</form>
+<div class="container-link">
+    <a class="link" href="{% url 'registration' %}">Регистрация</a> |
+    <a class="link" href="{% url 'password_reset' %}">Забыли пароль?</a>
+</div>
+{% endblock  %}
+
+{% block script_page %}
+<script src="{% static 'django_users/js/script_authorization.js' %}"></script>
+{% endblock %}

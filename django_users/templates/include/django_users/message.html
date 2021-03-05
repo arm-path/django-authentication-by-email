@@ -1,0 +1,12 @@
+{% if messages %}
+<ul class="messages-success ">
+    {% for message in messages %}
+    <li> {{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% if form.non_field_errors %}
+<ul class="messages-error">
+    <li>{{ form.non_field_errors.as_text }}</li>
+</ul>
+{% endif %}

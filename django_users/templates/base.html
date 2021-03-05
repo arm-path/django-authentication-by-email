@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'django_users/css/style.css'%}">
+    <title> {% block title %} {{ title }} {% endblock %} </title>
+</head>
+<body>
+<div class="container">
+    <div class="container-header"> {{ title }}</div>
+    {% include 'include/django_users/message.html'%}
+    <div class="container-body"> {% block content %} {% endblock %}</div>
+</div>
+{% include 'include/django_users/script_general.html' %}
+{% block script_page %} {% endblock %}
+</body>
+
+</html>
