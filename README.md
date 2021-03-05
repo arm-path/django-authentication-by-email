@@ -22,22 +22,22 @@
 ![logout.png](README/image/logout.png)
 
 ### Начало работы:
-####1. Файл django_settings/settings.py: 
+###1. Файл django_settings/settings.py: 
 Добавить: Настройки Электронной почты:\
    1.1. TODO: Адрес электронной почты.\
    1.2. TODO: Пароль электронной почты.
 
-####2. Установить зависимости:
+###2. Установить зависимости:
 >pip install -r requirements.txt
 
-####3. Запустить Redis:
+###3. Запустить Redis:
 > docker-compose up
-####4. Запустить Celery:
+###4. Запустить Celery:
 > celery -A django_settings worker --loglevel INFO
-####5. Применить миграции и создать пользователя:
+###5. Применить миграции и создать пользователя:
 > python manage.py makemigrations \
 > python manage.py migrate \
 > python manage.py createsuperuser
-####6. Запустить Django.
+###6. Запустить Django.
 > python manage.py runserver
 
